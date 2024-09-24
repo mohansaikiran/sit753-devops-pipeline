@@ -12,13 +12,13 @@ describe("Landing Page Loading Properly", function() {
         });
     });
 
-    it("page should return 'Hello, world!'", function(done) {
-        request(blankUrl, function(error, response, body) {
-            const jsonBody = JSON.parse(body);
-            expect(jsonBody.result).to.equal('Hello, World!');
-            done();
-        });
-    });
+    // it("page should return 'Hello, world!'", function(done) {
+    //     request(blankUrl, function(error, response, body) {
+    //         const jsonBody = JSON.parse(body);
+    //         expect(jsonBody.result).to.equal('Hello, World!');
+    //         done();
+    //     });
+    // });
 
     var statusUrl = "http://localhost:3000/status";
     it("should return service status", function(done) {

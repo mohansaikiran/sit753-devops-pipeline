@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sit753-devops-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sit753-devops
+  template:
+    metadata:
+      labels:
+        app: sit753-devops
+    spec:
+      containers:
+        - name: sit753-devops-container
+          image: sit753-devops-pipeline:latest
+          ports:
+            - containerPort: 3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sit753-devops-service
+spec:
+  type: NodePort
+  selector:
+    app: sit753-devops
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
+      nodePort: 30001

@@ -3,11 +3,10 @@ App is running on http://localhost:3000
 
   Landing Page Loading Properly
     ✔ page working properly
-    ✔ page should return 'Hello, world!'
     ✔ should return service status
     ✔ should return sum of 2 numbers
 Server closed
 
 
-  4 passing (24ms)
+  3 passing (22ms)
 

@@ -9,7 +9,7 @@ pipeline {
                     git branch: 'main', url: 'https://github.com/mohansaikiran/sit753-devops-pipeline.git'
 
                     // Build Docker image
-                    sh 'docker build -t sit753-devops-pipeline .'
+                    sh "docker build -t sit753-devops-pipeline:$BUILD_NUMBER ."
                 }
             }
         }
@@ -49,14 +49,15 @@ pipeline {
         //     }
         // }
 
-        // stage('Deploy to Kubernetes') { // 7th Stage
-        //     steps {
-        //         script {
-        //             // Deploy the application to Kubernetes
-        //             sh 'kubectl apply -f scripts/deployment.yaml'
-        //         }
-        //     }
-        // }
+        stage('Deploy to Kubernetes') { // 7th Stage
+            steps {
+                script {
+                    // Deploy the application to Kubernetes
+                    sh "sed -i 's|image: .*|image: sit753-devops-pipeline:${BUILD_NUMBER}|' scripts/deployment.yaml"
+                    sh 'kubectl apply -f scripts/deployment.yaml'
+                }
+            }
+        }
 
         // stage('Deploy to Docker') {
         //     steps {
