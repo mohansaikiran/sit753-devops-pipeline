@@ -22,6 +22,21 @@ pipeline {
                     sh 'npm test'
                 }
             }
+
+            post {
+                success {
+                    emailext attachmentsPattern: 'test-results.log',
+                            body: 'Automation testing using Mocha and Chai completed successfully',
+                            subject: 'Testing Status: SUCCESS',
+                            to:'kiranms20@gmail.com'
+                }
+                failure {
+                    emailext attachmentsPattern: 'test-results.log',
+                            body: 'Automation testing using Mocha and Chai failed. Please check logs!',
+                            subject: 'Testing Status: FAILURE',
+                            to:'kiranms20@gmail.com'
+                }
+            }
         }
 
         // stage('Push Image to Registry') {
