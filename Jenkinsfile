@@ -24,25 +24,6 @@ pipeline {
             }
         }
 
-        post {
-        success {
-            echo 'Build and test stages completed successfully!'
-        }
-
-        failure {
-            echo 'Build or test stage failed.'
-        }
-
-        always {
-            // This will ensure Jenkins completes the process
-            script {
-                echo 'Cleaning up and stopping process.'
-                sh 'docker ps -q | xargs --no-run-if-empty docker stop || true'
-                sh 'docker ps -a -q | xargs --no-run-if-empty docker rm || true'
-            }
-        }
-    }
-
         // stage('Push Image to Registry') {
         //     steps {
         //         script {
@@ -70,5 +51,24 @@ pipeline {
         //         }
         //     }
         // }
+    }
+
+    post {
+        success {
+            echo 'Build and test stages completed successfully!'
+        }
+
+        failure {
+            echo 'Build or test stage failed.'
+        }
+
+        always {
+            // This will ensure Jenkins completes the process
+            script {
+                echo 'Cleaning up and stopping process.'
+                sh 'docker ps -q | xargs --no-run-if-empty docker stop || true'
+                sh 'docker ps -a -q | xargs --no-run-if-empty docker rm || true'
+            }
+        }
     }
 }
