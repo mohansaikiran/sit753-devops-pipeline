@@ -49,7 +49,7 @@ pipeline {
         //     }
         // }
 
-        stage('Deploy to Kubernetes') { // 7th Stage
+        stage('Deploy to Kubernetes') {
             steps {
                 script {
                     // Deploy the application to Kubernetes
@@ -58,14 +58,5 @@ pipeline {
                 }
             }
         }
-
-        // stage('Deploy to Docker') {
-        //     steps {
-        //         script {
-        //             // Run the app in a Docker container
-        //             sh 'docker run -d -p 3000:3000 sit753-devops-pipeline'
-        //         }
-        //     }
-        // }
     }
 }

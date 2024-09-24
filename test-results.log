@@ -3,10 +3,15 @@ App is running on http://localhost:3000
 
   Landing Page Loading Properly
     ✔ page working properly
+    ✔ Home Page working properly
+    ✔ About Page working properly
+    ✔ Features Page working properly
+    ✔ Home Page working properly
+    ✔ Home Page working properly
     ✔ should return service status
     ✔ should return sum of 2 numbers
 Server closed
 
 
-  3 passing (22ms)
+  8 passing (29ms)
 
