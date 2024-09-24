@@ -53,7 +53,7 @@ pipeline {
             steps {
                 script {
                     // Deploy the application to Kubernetes
-                    sh "sed -i 's|image: .*|image: sit753-devops-pipeline:${BUILD_NUMBER}|' scripts/deployment.yaml"
+                    sh "sed -i '' 's|image: .*|image: sit753-devops-pipeline:${BUILD_NUMBER}|' scripts/deployment.yaml"
                     sh 'kubectl apply -f scripts/deployment.yaml'
                 }
             }
