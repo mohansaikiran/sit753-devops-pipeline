@@ -1,4 +1,4 @@
-const app = require('../app');
+const server = require('../app');
 var expect  = require("chai").expect;
 var request = require("request");
 
@@ -35,6 +35,13 @@ describe("Landing Page Loading Properly", function() {
         request(sumUrl, function(error, response, body) {
             const jsonBody = JSON.parse(body); // Parse the JSON body
             expect(jsonBody.result).to.equal(8); 
+            done();
+        });
+    });
+
+    after(function(done) {
+        server.close(() => {
+            console.log('Server closed');
             done();
         });
     });

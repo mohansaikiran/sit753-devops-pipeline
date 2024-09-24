@@ -16,8 +16,8 @@ app.get('/add', (req, res) => {
   res.json({ result: sum });
 });
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
   console.log(`App is running on http://localhost:${port}`);
 });
 
-module.exports = app;
+module.exports = server;
