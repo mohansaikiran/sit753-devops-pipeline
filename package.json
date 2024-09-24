@@ -1,0 +1,21 @@
+{
+  "name": "sit753-devops-pipeline",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "chai-http": "^5.0.0",
+    "mocha": "^10.7.3",
+    "request": "^2.88.2"
+  }
+}
